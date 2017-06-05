@@ -1,0 +1,113 @@
+package com.siem.unlam;
+
+import com.siem.unlam.Persona;
+import java.math.BigDecimal;
+
+rule "rule1"
+	no-loop
+	salience 1000
+    when
+    	persona : Persona()
+		eval ( persona.getDato("edad").equals("0 - 20") )
+    then
+    	persona.setPreCategoria("amarillo");
+end
+
+rule "rule2"
+	no-loop
+	salience 999
+    when
+    	persona : Persona()
+		eval ( persona.getDato("edad").equals("20 - 80") )
+    then
+    	persona.setPreCategoria("rojo");
+end
+
+rule "rule3"
+	no-loop
+	salience 998
+    when
+    	persona : Persona()
+		eval ( persona.getDato("edad").equals("80 - 100") )
+    then
+    	persona.setPreCategoria("negro");
+end
+
+rule "rule4"
+	no-loop
+	salience 997
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("1") )
+    then
+    	persona.setAjuste(1);
+end
+
+rule "rule5"
+	no-loop
+	salience 996
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("2") )
+    then
+    	persona.setAjuste(2);
+end
+
+rule "rule6"
+	no-loop
+	salience 995
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("3") )
+    then
+    	persona.setAjuste(3);
+end
+
+rule "rule7"
+	no-loop
+	salience 994
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("-1") )
+    then
+    	persona.setAjuste(-1);
+end
+
+rule "rule8"
+	no-loop
+	salience 993
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("-2") )
+    then
+    	persona.setAjuste(-2);
+end
+
+rule "rule9"
+	no-loop
+	salience 992
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("-3") )
+    then
+    	persona.setAjuste(-3);
+end
+
+rule "rule10"
+	no-loop
+	salience 991
+    when
+    	persona : Persona()
+		eval ( persona.getDato("peso").equals("0") )
+    then
+    	persona.setAjuste(0);
+end
+
+rule "rule11"
+	no-loop
+	salience 991
+    when
+    	persona : Persona()
+    then
+    	persona.processCategoria();
+end
