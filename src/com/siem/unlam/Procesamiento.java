@@ -37,27 +37,11 @@ public class Procesamiento {
         ArrayList<Persona> personas = new ArrayList<Persona>();
 
         //Creamos algunos empleados para el ejemplo
-        Persona persona1 = new Persona("20 - 80", "0");
-        persona1.addListCategoria("verde");
-        persona1.addListCategoria("amarillo");
-        persona1.addListCategoria("rojo");
-        persona1.addListCategoria("negro");
-        
-        Persona persona2 = new Persona("0 - 20", "1");
-        persona2.addListCategoria("verde");
-        persona2.addListCategoria("amarillo");
-        persona2.addListCategoria("rojo");
-        persona2.addListCategoria("negro");
-        
-        Persona persona3 = new Persona("20 - 80", "2");
-        persona3.addListCategoria("verde");
-        persona3.addListCategoria("amarillo");
-        persona3.addListCategoria("rojo");
-        persona3.addListCategoria("negro");
-
-        personas.add(persona1);
-        personas.add(persona2);
-        personas.add(persona3);
+        Persona persona = new Persona();
+        persona.setDato("Estado de conciencia", "Desorientado en espacio / tiempo");
+        persona.setDato("Cefalea", "Intensa");
+        persona.setDato("Ubicación", "Hospital privado");
+        personas.add(persona);
 
         return personas;
     }

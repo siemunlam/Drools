@@ -7,23 +7,20 @@ import java.util.Map;
 public class Persona {
 
 	private String mPreCategoria;
-	private Integer mAjuste;
+	private int mAjuste;
 	private String mCategoria;
     private Map<String, String> mDatos;
-    private ArrayList<String> mListCategorias;
-    
-    public Persona(String edad, String peso) {
+
+    public Persona() {
     	mDatos = new HashMap<>();
-    	mListCategorias = new ArrayList<>();
-    	setDato("edad", edad);
-    	setDato("peso", peso);
-    	setPreCategoria("verde");
-    	setAjuste(0);
+    	mPreCategoria = "";
+    	mAjuste = 0;
+    	mCategoria = "";
     }
 
     @Override
     public String toString() {
-        return "Categoria: " + getPreCategoria() + " - Ajuste: " + getAjuste() + " - Cat: " + getCategoria();
+        return "Precategoria: " + getPreCategoria() + " - Ajuste: " + getAjuste() + " - Cat: " + getCategoria();
     }
 
     public String getDato(String key) {
@@ -42,11 +39,11 @@ public class Persona {
     	mPreCategoria = categoria;
     }
     
-    public Integer getAjuste(){
+    public int getAjuste(){
     	return mAjuste;
     }
     
-    public void setAjuste(Integer ajuste){
+    public void setAjuste(int ajuste){
     	this.mAjuste = ajuste;
     }
     
@@ -58,11 +55,7 @@ public class Persona {
     	this.mCategoria = categoria;
     }
     
-    public void addListCategoria(String categoria){
-    	mListCategorias.add(categoria);
-    }
-    
-    public void processCategoria(){
+    public void procesarCategoria(ArrayList<String> mListCategorias){
     	int i = 0;
     	for(i = 0; i < mListCategorias.size(); i++){
     		if(mListCategorias.get(i).equals(getPreCategoria())){
