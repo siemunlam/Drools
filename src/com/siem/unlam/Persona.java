@@ -12,7 +12,11 @@ public class Persona {
     private Map<String, String> mDatos;
 
     public Persona() {
-    	mDatos = new HashMap<>();
+    	this(new HashMap<String, String>());
+    }
+    
+    public Persona(HashMap<String, String> datos) {
+    	mDatos = datos;
     	mPreCategoria = "";
     	mAjuste = 0;
     	mCategoria = "";
@@ -55,7 +59,9 @@ public class Persona {
     	this.mCategoria = categoria;
     }
     
-    public void procesarCategoria(ArrayList<String> mListCategorias){
+    public void procesarCategoria(String menorCategoria, ArrayList<String> mListCategorias){
+    	if(mPreCategoria.equals(""))
+    		mPreCategoria = menorCategoria;
     	int i = 0;
     	for(i = 0; i < mListCategorias.size(); i++){
     		if(mListCategorias.get(i).equals(getPreCategoria())){

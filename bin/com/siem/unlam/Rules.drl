@@ -325,6 +325,6 @@ rule "ruleCategorizacion0"
 		listCategorias.add("Amarillo");
 		listCategorias.add("Rojo");
 		listCategorias.add("Naranja");
-		persona.procesarCategoria(listCategorias);
+		persona.procesarCategoria("Negro", listCategorias);
 end
 

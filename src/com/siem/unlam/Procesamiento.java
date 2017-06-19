@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import org.drools.RuleBase;
 import org.drools.RuleBaseFactory;
 import org.drools.WorkingMemory;
@@ -31,19 +32,31 @@ public class Procesamiento {
             System.out.println(persona.toString());
         }
     }
-
     
     private static Collection<Persona> buscarPersonas() {
         ArrayList<Persona> personas = new ArrayList<Persona>();
 
         //Creamos algunos empleados para el ejemplo
         Persona persona = new Persona();
-        persona.setDato("Estado de conciencia", "Desorientado en espacio / tiempo");
-        persona.setDato("Cefalea", "Intensa");
-        persona.setDato("Ubicación", "Hospital privado");
+        persona.setDato("Sangrado", "Masivo");
         personas.add(persona);
 
         return personas;
+    }
+    
+    public static String devolverCategoria(Persona persona) {
+    	try{
+    		RuleBase ruleBase = leerReglas();
+            WorkingMemory workingMemory = ruleBase.newStatefulSession();
+            
+            workingMemory.insert(persona);
+            
+            workingMemory.fireAllRules();
+            
+            return persona.getCategoria();
+    	}catch(Exception e){
+    		return null;
+    	}   
     }
 
 
