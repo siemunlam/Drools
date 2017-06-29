@@ -1,4 +1,5 @@
 package com.siem.unlam;
+
 import com.siem.unlam.Persona;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ rule "rulePreCategorizacion13"
 		salience 1796
 	when
 		persona : Persona()
-			eval( persona.getDato("Traumatismo").equals("Grave / mÃºltiple") )
+			eval( persona.getDato("Traumatismo").equals("Grave / múltiple") )
 	then
 		persona.setPreCategoria("Rojo");
 end
@@ -30,7 +31,7 @@ rule "rulePreCategorizacion10"
 		persona : Persona()
 			eval( persona.getDato("Sangrado").equals("Masivo") )
 	then
-		persona.setPreCategoria("Rojo");
+		persona.setPreCategoria("Verde");
 end
 
 rule "rulePreCategorizacion7"
@@ -68,7 +69,7 @@ rule "rulePreCategorizacion17"
 		salience 2150
 	when
 		persona : Persona()
-			eval( persona.getDato("Temperatura corporal").equals("Menor a 34,5Â°") )
+			eval( persona.getDato("Temperatura corporal").equals("Menor a 34,5°") )
 	then
 		persona.setPreCategoria("Amarillo");
 end
@@ -78,7 +79,7 @@ rule "rulePreCategorizacion19"
 		salience 2151
 	when
 		persona : Persona()
-			eval( persona.getDato("Temperatura corporal").equals("Mayor a 39Â°") )
+			eval( persona.getDato("Temperatura corporal").equals("Mayor a 39°") )
 	then
 		persona.setPreCategoria("Amarillo");
 end
@@ -168,7 +169,7 @@ rule "rulePreCategorizacion18"
 		salience 3007
 	when
 		persona : Persona()
-			eval( persona.getDato("Temperatura corporal").equals("Entre 34,5Â° y 38,5Â°") )
+			eval( persona.getDato("Temperatura corporal").equals("Entre 34,5° y 38,5°") )
 	then
 		persona.setPreCategoria("Verde");
 end
@@ -198,7 +199,7 @@ rule "ruleAjuste4"
 		salience 6871
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("Asma") )
+			eval( persona.getDato("Antecedentes clínicos").equals("Asma") )
 	then
 		persona.setAjuste(3);
 end
@@ -208,7 +209,7 @@ rule "ruleAjuste1"
 		salience 6901
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("Diabetes") )
+			eval( persona.getDato("Antecedentes clínicos").equals("Diabetes") )
 	then
 		persona.setAjuste(3);
 end
@@ -218,7 +219,7 @@ rule "ruleAjuste2"
 		salience 6902
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("Enfermedad cardÃ­aca") )
+			eval( persona.getDato("Antecedentes clínicos").equals("Enfermedad cardíaca") )
 	then
 		persona.setAjuste(3);
 end
@@ -228,7 +229,7 @@ rule "ruleAjuste5"
 		salience 6903
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("ACV") )
+			eval( persona.getDato("Antecedentes clínicos").equals("ACV") )
 	then
 		persona.setAjuste(3);
 end
@@ -238,7 +239,7 @@ rule "ruleAjuste11"
 		salience 6972
 	when
 		persona : Persona()
-			eval( persona.getDato("UbicaciÃ³n").equals("VÃ­a pÃºblica") )
+			eval( persona.getDato("Ubicación").equals("Vía pública") )
 	then
 		persona.setAjuste(3);
 end
@@ -248,7 +249,7 @@ rule "ruleAjuste3"
 		salience 7751
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("Alergia") )
+			eval( persona.getDato("Antecedentes clínicos").equals("Alergia") )
 	then
 		persona.setAjuste(2);
 end
@@ -258,7 +259,7 @@ rule "ruleAjuste7"
 		salience 8501
 	when
 		persona : Persona()
-			eval( persona.getDato("Edad").equals("Menor a 3 aÃ±os") )
+			eval( persona.getDato("Edad").equals("Menor a 3 años") )
 	then
 		persona.setAjuste(1);
 end
@@ -268,7 +269,7 @@ rule "ruleAjuste9"
 		salience 8535
 	when
 		persona : Persona()
-			eval( persona.getDato("Edad").equals("Mayor de 65 aÃ±os") )
+			eval( persona.getDato("Edad").equals("Mayor de 65 años") )
 	then
 		persona.setAjuste(1);
 end
@@ -278,7 +279,7 @@ rule "ruleAjuste6"
 		salience 9001
 	when
 		persona : Persona()
-			eval( persona.getDato("Antecedentes clÃ­nicos").equals("No presenta") )
+			eval( persona.getDato("Antecedentes clínicos").equals("No presenta") )
 	then
 		persona.setAjuste(0);
 end
@@ -288,7 +289,7 @@ rule "ruleAjuste8"
 		salience 9002
 	when
 		persona : Persona()
-			eval( persona.getDato("Edad").equals("Entre 3 y 65 aÃ±os") )
+			eval( persona.getDato("Edad").equals("Entre 3 y 65 años") )
 	then
 		persona.setAjuste(0);
 end
@@ -298,19 +299,9 @@ rule "ruleAjuste12"
 		salience 9006
 	when
 		persona : Persona()
-			eval( persona.getDato("UbicaciÃ³n").equals("Privada") )
+			eval( persona.getDato("Ubicación").equals("Privada") )
 	then
 		persona.setAjuste(0);
-end
-
-rule "ruleAjuste10"
-		no-loop
-		salience 10971
-	when
-		persona : Persona()
-			eval( persona.getDato("UbicaciÃ³n").equals("Hospital privado") )
-	then
-		persona.setAjuste(-3);
 end
 
 rule "ruleCategorizacion0"

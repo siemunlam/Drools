@@ -15,6 +15,7 @@ public class Service {
 	@POST
     @Path("obtenerCategoria/")
 	public String obtenerCategoria(String inputjson){
+		Procesamiento procesamiento = new Procesamiento();
 		HashMap<String, String> valores = new HashMap<>();
 		try{
 			inputjson = URLDecoder.decode(inputjson, "utf-8");
@@ -26,12 +27,26 @@ public class Service {
 				String key = keys.next();
 				valores.put(key, obj.getString(key));
 			}
-			
 			Persona persona = new Persona(valores);
 			
-			return Procesamiento.devolverCategoria(persona);
+			return procesamiento.devolverCategoria(persona);
 		}catch(Exception e){
-			return "";
+			return "" + e.getMessage();
+		}
+	}
+	
+	@POST
+    @Path("actualizarReglas/")
+	public boolean actualizarReglas(String reglas){
+		Procesamiento procesamiento = new Procesamiento();
+		try{
+			reglas = URLDecoder.decode(reglas, "utf-8");
+			String[] parameters = reglas.split("&");
+			String[] values = parameters[0].split("=");
+			return procesamiento.saveText(values[1]);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 }
