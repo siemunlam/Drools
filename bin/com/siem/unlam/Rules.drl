@@ -1,8 +1,5 @@
 package com.siem.unlam;
-
 import com.siem.unlam.Persona;
-
-import java.util.ArrayList;
 
 rule "rulePreCategorizacion8"
 		no-loop
@@ -11,7 +8,7 @@ rule "rulePreCategorizacion8"
 		persona : Persona()
 			eval( persona.getDato("Estado de conciencia").equals("Desorientado en espacio / tiempo") )
 	then
-		persona.setPreCategoria("Rojo");
+		modify(persona) { setPreCategoria("Rojo") };
 end
 
 rule "rulePreCategorizacion13"
@@ -21,7 +18,7 @@ rule "rulePreCategorizacion13"
 		persona : Persona()
 			eval( persona.getDato("Traumatismo").equals("Grave / múltiple") )
 	then
-		persona.setPreCategoria("Rojo");
+		modify(persona) { setPreCategoria("Rojo") };
 end
 
 rule "rulePreCategorizacion10"
@@ -31,7 +28,7 @@ rule "rulePreCategorizacion10"
 		persona : Persona()
 			eval( persona.getDato("Sangrado").equals("Masivo") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Rojo") };
 end
 
 rule "rulePreCategorizacion7"
@@ -41,7 +38,7 @@ rule "rulePreCategorizacion7"
 		persona : Persona()
 			eval( persona.getDato("Estado de conciencia").equals("Inconsciente") )
 	then
-		persona.setPreCategoria("Rojo");
+		modify(persona) { setPreCategoria("Rojo") };
 end
 
 rule "rulePreCategorizacion4"
@@ -51,7 +48,7 @@ rule "rulePreCategorizacion4"
 		persona : Persona()
 			eval( persona.getDato("Convulsiones").equals("En curso") )
 	then
-		persona.setPreCategoria("Rojo");
+		modify(persona) { setPreCategoria("Rojo") };
 end
 
 rule "rulePreCategorizacion1"
@@ -61,7 +58,7 @@ rule "rulePreCategorizacion1"
 		persona : Persona()
 			eval( persona.getDato("Cefalea").equals("Intensa") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion17"
@@ -71,7 +68,7 @@ rule "rulePreCategorizacion17"
 		persona : Persona()
 			eval( persona.getDato("Temperatura corporal").equals("Menor a 34,5°") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion19"
@@ -81,7 +78,7 @@ rule "rulePreCategorizacion19"
 		persona : Persona()
 			eval( persona.getDato("Temperatura corporal").equals("Mayor a 39°") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion11"
@@ -91,7 +88,7 @@ rule "rulePreCategorizacion11"
 		persona : Persona()
 			eval( persona.getDato("Sangrado").equals("Controlado") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion15"
@@ -101,7 +98,7 @@ rule "rulePreCategorizacion15"
 		persona : Persona()
 			eval( persona.getDato("Traumatismo").equals("Intermedio") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion5"
@@ -111,7 +108,7 @@ rule "rulePreCategorizacion5"
 		persona : Persona()
 			eval( persona.getDato("Convulsiones").equals("Recuperado") )
 	then
-		persona.setPreCategoria("Amarillo");
+		modify(persona) { setPreCategoria("Amarillo") };
 end
 
 rule "rulePreCategorizacion3"
@@ -121,7 +118,7 @@ rule "rulePreCategorizacion3"
 		persona : Persona()
 			eval( persona.getDato("Cefalea").equals("No presenta") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion6"
@@ -131,7 +128,7 @@ rule "rulePreCategorizacion6"
 		persona : Persona()
 			eval( persona.getDato("Convulsiones").equals("No presenta") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion9"
@@ -141,7 +138,7 @@ rule "rulePreCategorizacion9"
 		persona : Persona()
 			eval( persona.getDato("Estado de conciencia").equals("Sin alteraciones") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion12"
@@ -151,7 +148,7 @@ rule "rulePreCategorizacion12"
 		persona : Persona()
 			eval( persona.getDato("Sangrado").equals("No presenta") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion16"
@@ -161,7 +158,7 @@ rule "rulePreCategorizacion16"
 		persona : Persona()
 			eval( persona.getDato("Traumatismo").equals("No presenta") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion18"
@@ -171,7 +168,7 @@ rule "rulePreCategorizacion18"
 		persona : Persona()
 			eval( persona.getDato("Temperatura corporal").equals("Entre 34,5° y 38,5°") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion2"
@@ -181,7 +178,7 @@ rule "rulePreCategorizacion2"
 		persona : Persona()
 			eval( persona.getDato("Cefalea").equals("Leve") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "rulePreCategorizacion14"
@@ -191,7 +188,7 @@ rule "rulePreCategorizacion14"
 		persona : Persona()
 			eval( persona.getDato("Traumatismo").equals("Leve") )
 	then
-		persona.setPreCategoria("Verde");
+		modify(persona) { setPreCategoria("Verde") };
 end
 
 rule "ruleAjuste4"
@@ -201,7 +198,7 @@ rule "ruleAjuste4"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("Asma") )
 	then
-		persona.setAjuste(3);
+		modify(persona) { setAjuste("3") };
 end
 
 rule "ruleAjuste1"
@@ -211,7 +208,7 @@ rule "ruleAjuste1"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("Diabetes") )
 	then
-		persona.setAjuste(3);
+		modify(persona) { setAjuste("3") };
 end
 
 rule "ruleAjuste2"
@@ -221,7 +218,7 @@ rule "ruleAjuste2"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("Enfermedad cardíaca") )
 	then
-		persona.setAjuste(3);
+		modify(persona) { setAjuste("3") };
 end
 
 rule "ruleAjuste5"
@@ -231,7 +228,7 @@ rule "ruleAjuste5"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("ACV") )
 	then
-		persona.setAjuste(3);
+		modify(persona) { setAjuste("3") };
 end
 
 rule "ruleAjuste11"
@@ -241,7 +238,7 @@ rule "ruleAjuste11"
 		persona : Persona()
 			eval( persona.getDato("Ubicación").equals("Vía pública") )
 	then
-		persona.setAjuste(3);
+		modify(persona) { setAjuste("3") };
 end
 
 rule "ruleAjuste3"
@@ -251,7 +248,7 @@ rule "ruleAjuste3"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("Alergia") )
 	then
-		persona.setAjuste(2);
+		modify(persona) { setAjuste("2") };
 end
 
 rule "ruleAjuste7"
@@ -261,7 +258,7 @@ rule "ruleAjuste7"
 		persona : Persona()
 			eval( persona.getDato("Edad").equals("Menor a 3 años") )
 	then
-		persona.setAjuste(1);
+		modify(persona) { setAjuste("1") };
 end
 
 rule "ruleAjuste9"
@@ -271,7 +268,7 @@ rule "ruleAjuste9"
 		persona : Persona()
 			eval( persona.getDato("Edad").equals("Mayor de 65 años") )
 	then
-		persona.setAjuste(1);
+		modify(persona) { setAjuste("1") };
 end
 
 rule "ruleAjuste6"
@@ -281,7 +278,7 @@ rule "ruleAjuste6"
 		persona : Persona()
 			eval( persona.getDato("Antecedentes clínicos").equals("No presenta") )
 	then
-		persona.setAjuste(0);
+		modify(persona) { setAjuste("0") };
 end
 
 rule "ruleAjuste8"
@@ -291,7 +288,7 @@ rule "ruleAjuste8"
 		persona : Persona()
 			eval( persona.getDato("Edad").equals("Entre 3 y 65 años") )
 	then
-		persona.setAjuste(0);
+		modify(persona) { setAjuste("0") };
 end
 
 rule "ruleAjuste12"
@@ -301,21 +298,456 @@ rule "ruleAjuste12"
 		persona : Persona()
 			eval( persona.getDato("Ubicación").equals("Privada") )
 	then
-		persona.setAjuste(0);
+		modify(persona) { setAjuste("0") };
 end
 
-rule "ruleCategorizacion0"
+rule "ruleCategorizacion-1"
 		no-loop
-		salience 0
+		salience -1
 	when
 		persona : Persona()
+			eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("4") )
 	then
-		ArrayList<String> listCategorias = new ArrayList();
-		listCategorias.add("Negro");
-		listCategorias.add("Verde");
-		listCategorias.add("Amarillo");
-		listCategorias.add("Rojo");
-		listCategorias.add("Naranja");
-		persona.procesarCategoria("Negro", listCategorias);
+		modify(persona) { setCategoria("Naranja") };
 end
+
+	rule "ruleCategorizacion-2"
+			no-loop
+			salience -2
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("3") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-3"
+			no-loop
+			salience -3
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("2") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-4"
+			no-loop
+			salience -4
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("1") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-5"
+			no-loop
+			salience -5
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("0") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-6"
+			no-loop
+			salience -6
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("-1") )
+		then
+			modify(persona) { setCategoria("Rojo") };
+	end
+	
+	rule "ruleCategorizacion-7"
+			no-loop
+			salience -7
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("-2") )
+		then
+			modify(persona) { setCategoria("Amarillo") };
+	end
+	
+	rule "ruleCategorizacion-8"
+			no-loop
+			salience -8
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("-3") )
+		then
+			modify(persona) { setCategoria("Verde") };
+	end
+	
+	rule "ruleCategorizacion-9"
+			no-loop
+			salience -9
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Naranja") && persona.getAjuste().equals("-4") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-10"
+			no-loop
+			salience -10
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("4") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-11"
+			no-loop
+			salience -11
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("3") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-12"
+			no-loop
+			salience -12
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("2") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-13"
+			no-loop
+			salience -13
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("1") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-14"
+			no-loop
+			salience -14
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("0") )
+		then
+			modify(persona) { setCategoria("Rojo") };
+	end
+	
+	rule "ruleCategorizacion-15"
+			no-loop
+			salience -15
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("-1") )
+		then
+			modify(persona) { setCategoria("Amarillo") };
+	end
+	
+	rule "ruleCategorizacion-16"
+			no-loop
+			salience -16
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("-2") )
+		then
+			modify(persona) { setCategoria("Verde") };
+	end
+	
+	rule "ruleCategorizacion-17"
+			no-loop
+			salience -17
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("-3") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-18"
+			no-loop
+			salience -18
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Rojo") && persona.getAjuste().equals("-4") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-19"
+			no-loop
+			salience -19
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("4") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-20"
+			no-loop
+			salience -20
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("3") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-21"
+			no-loop
+			salience -21
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("2") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-22"
+			no-loop
+			salience -22
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("1") )
+		then
+			modify(persona) { setCategoria("Rojo") };
+	end
+	
+	rule "ruleCategorizacion-23"
+			no-loop
+			salience -23
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("0") )
+		then
+			modify(persona) { setCategoria("Amarillo") };
+	end
+	
+	rule "ruleCategorizacion-24"
+			no-loop
+			salience -24
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("-1") )
+		then
+			modify(persona) { setCategoria("Verde") };
+	end
+	
+	rule "ruleCategorizacion-25"
+			no-loop
+			salience -25
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("-2") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-26"
+			no-loop
+			salience -26
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("-3") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-27"
+			no-loop
+			salience -27
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Amarillo") && persona.getAjuste().equals("-4") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-28"
+			no-loop
+			salience -28
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("4") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-29"
+			no-loop
+			salience -29
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("3") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-30"
+			no-loop
+			salience -30
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("2") )
+		then
+			modify(persona) { setCategoria("Rojo") };
+	end
+	
+	rule "ruleCategorizacion-31"
+			no-loop
+			salience -31
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("1") )
+		then
+			modify(persona) { setCategoria("Amarillo") };
+	end
+	
+	rule "ruleCategorizacion-32"
+			no-loop
+			salience -32
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("0") )
+		then
+			modify(persona) { setCategoria("Verde") };
+	end
+	
+	rule "ruleCategorizacion-33"
+			no-loop
+			salience -33
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("-1") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-34"
+			no-loop
+			salience -34
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("-2") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-35"
+			no-loop
+			salience -35
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("-3") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-36"
+			no-loop
+			salience -36
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Verde") && persona.getAjuste().equals("-4") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-37"
+			no-loop
+			salience -37
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("4") )
+		then
+			modify(persona) { setCategoria("Naranja") };
+	end
+	
+	rule "ruleCategorizacion-38"
+			no-loop
+			salience -38
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("3") )
+		then
+			modify(persona) { setCategoria("Rojo") };
+	end
+	
+	rule "ruleCategorizacion-39"
+			no-loop
+			salience -39
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("2") )
+		then
+			modify(persona) { setCategoria("Amarillo") };
+	end
+	
+	rule "ruleCategorizacion-40"
+			no-loop
+			salience -40
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("1") )
+		then
+			modify(persona) { setCategoria("Verde") };
+	end
+	
+	rule "ruleCategorizacion-41"
+			no-loop
+			salience -41
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("0") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-42"
+			no-loop
+			salience -42
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("-1") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-43"
+			no-loop
+			salience -43
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("-2") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-44"
+			no-loop
+			salience -44
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("-3") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
+	
+	rule "ruleCategorizacion-45"
+			no-loop
+			salience -45
+		when
+			persona : Persona()
+				eval( persona.getPrecategoria().equals("Negro") && persona.getAjuste().equals("-4") )
+		then
+			modify(persona) { setCategoria("Negro") };
+	end
 
