@@ -1,0 +1,320 @@
+package com.siem.unlam;
+
+import com.siem.unlam.Persona;
+
+import java.util.ArrayList;
+
+rule "rulePreCategorizacion8"
+		no-loop
+		salience 1702
+	when
+		persona : Persona()
+			eval( persona.getDato("Estado de conciencia").equals("Desorientado en espacio / tiempo") )
+	then
+		persona.setPreCategoria("Rojo");
+end
+
+rule "rulePreCategorizacion13"
+		no-loop
+		salience 1796
+	when
+		persona : Persona()
+			eval( persona.getDato("Traumatismo").equals("Grave / múltiple") )
+	then
+		persona.setPreCategoria("Rojo");
+end
+
+rule "rulePreCategorizacion10"
+		no-loop
+		salience 1798
+	when
+		persona : Persona()
+			eval( persona.getDato("Sangrado").equals("Masivo") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion7"
+		no-loop
+		salience 1799
+	when
+		persona : Persona()
+			eval( persona.getDato("Estado de conciencia").equals("Inconsciente") )
+	then
+		persona.setPreCategoria("Rojo");
+end
+
+rule "rulePreCategorizacion4"
+		no-loop
+		salience 1800
+	when
+		persona : Persona()
+			eval( persona.getDato("Convulsiones").equals("En curso") )
+	then
+		persona.setPreCategoria("Rojo");
+end
+
+rule "rulePreCategorizacion1"
+		no-loop
+		salience 2050
+	when
+		persona : Persona()
+			eval( persona.getDato("Cefalea").equals("Intensa") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion17"
+		no-loop
+		salience 2150
+	when
+		persona : Persona()
+			eval( persona.getDato("Temperatura corporal").equals("Menor a 34,5°") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion19"
+		no-loop
+		salience 2151
+	when
+		persona : Persona()
+			eval( persona.getDato("Temperatura corporal").equals("Mayor a 39°") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion11"
+		no-loop
+		salience 2302
+	when
+		persona : Persona()
+			eval( persona.getDato("Sangrado").equals("Controlado") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion15"
+		no-loop
+		salience 2360
+	when
+		persona : Persona()
+			eval( persona.getDato("Traumatismo").equals("Intermedio") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion5"
+		no-loop
+		salience 2750
+	when
+		persona : Persona()
+			eval( persona.getDato("Convulsiones").equals("Recuperado") )
+	then
+		persona.setPreCategoria("Amarillo");
+end
+
+rule "rulePreCategorizacion3"
+		no-loop
+		salience 3001
+	when
+		persona : Persona()
+			eval( persona.getDato("Cefalea").equals("No presenta") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion6"
+		no-loop
+		salience 3002
+	when
+		persona : Persona()
+			eval( persona.getDato("Convulsiones").equals("No presenta") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion9"
+		no-loop
+		salience 3003
+	when
+		persona : Persona()
+			eval( persona.getDato("Estado de conciencia").equals("Sin alteraciones") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion12"
+		no-loop
+		salience 3004
+	when
+		persona : Persona()
+			eval( persona.getDato("Sangrado").equals("No presenta") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion16"
+		no-loop
+		salience 3005
+	when
+		persona : Persona()
+			eval( persona.getDato("Traumatismo").equals("No presenta") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion18"
+		no-loop
+		salience 3007
+	when
+		persona : Persona()
+			eval( persona.getDato("Temperatura corporal").equals("Entre 34,5° y 38,5°") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion2"
+		no-loop
+		salience 3009
+	when
+		persona : Persona()
+			eval( persona.getDato("Cefalea").equals("Leve") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "rulePreCategorizacion14"
+		no-loop
+		salience 3060
+	when
+		persona : Persona()
+			eval( persona.getDato("Traumatismo").equals("Leve") )
+	then
+		persona.setPreCategoria("Verde");
+end
+
+rule "ruleAjuste4"
+		no-loop
+		salience 6871
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("Asma") )
+	then
+		persona.setAjuste(3);
+end
+
+rule "ruleAjuste1"
+		no-loop
+		salience 6901
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("Diabetes") )
+	then
+		persona.setAjuste(3);
+end
+
+rule "ruleAjuste2"
+		no-loop
+		salience 6902
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("Enfermedad cardíaca") )
+	then
+		persona.setAjuste(3);
+end
+
+rule "ruleAjuste5"
+		no-loop
+		salience 6903
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("ACV") )
+	then
+		persona.setAjuste(3);
+end
+
+rule "ruleAjuste11"
+		no-loop
+		salience 6972
+	when
+		persona : Persona()
+			eval( persona.getDato("Ubicación").equals("Vía pública") )
+	then
+		persona.setAjuste(3);
+end
+
+rule "ruleAjuste3"
+		no-loop
+		salience 7751
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("Alergia") )
+	then
+		persona.setAjuste(2);
+end
+
+rule "ruleAjuste7"
+		no-loop
+		salience 8501
+	when
+		persona : Persona()
+			eval( persona.getDato("Edad").equals("Menor a 3 años") )
+	then
+		persona.setAjuste(1);
+end
+
+rule "ruleAjuste9"
+		no-loop
+		salience 8535
+	when
+		persona : Persona()
+			eval( persona.getDato("Edad").equals("Mayor de 65 años") )
+	then
+		persona.setAjuste(1);
+end
+
+rule "ruleAjuste6"
+		no-loop
+		salience 9001
+	when
+		persona : Persona()
+			eval( persona.getDato("Antecedentes clínicos").equals("No presenta") )
+	then
+		persona.setAjuste(0);
+end
+
+rule "ruleAjuste8"
+		no-loop
+		salience 9002
+	when
+		persona : Persona()
+			eval( persona.getDato("Edad").equals("Entre 3 y 65 años") )
+	then
+		persona.setAjuste(0);
+end
+
+rule "ruleAjuste12"
+		no-loop
+		salience 9006
+	when
+		persona : Persona()
+			eval( persona.getDato("Ubicación").equals("Privada") )
+	then
+		persona.setAjuste(0);
+end
+
+rule "ruleCategorizacion0"
+		no-loop
+		salience 0
+	when
+		persona : Persona()
+	then
+		ArrayList<String> listCategorias = new ArrayList();
+		listCategorias.add("Negro");
+		listCategorias.add("Verde");
+		listCategorias.add("Amarillo");
+		listCategorias.add("Rojo");
+		listCategorias.add("Naranja");
+		persona.procesarCategoria("Negro", listCategorias);
+end
