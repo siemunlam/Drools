@@ -79,8 +79,8 @@ public class Procesamiento {
     		ksession.insert(persona);
             
     		ksession.fireAllRules();
-            System.out.println("categoria determinada::"+ persona.getCategoria());
-            return persona.getCategoria();
+            System.out.println("Categoria determinada: "+ persona.getCategoria() + " - Prioridad: " + persona.getPrioridad());
+            return persona.getResultado();
     	}catch(Exception e){
     		System.out.println(e.getMessage());
     		return "";
@@ -88,13 +88,12 @@ public class Procesamiento {
     }
 
     private static KnowledgeBase readKnowledgeBase() {
-    	System.out.println("1");
+    	//System.out.println("1");
 		final KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-		System.out.println("2");
+		//System.out.println("2");
 		//kbuilder.add(ResourceFactory.newClassPathResource("Rules.drl"), ResourceType.DRL);
 		kbuilder.add(ResourceFactory.newFileResource(new File("Rules.drl")), ResourceType.DRL);
-		
-		System.out.println("3");
+		//System.out.println("3");
 		if (kbuilder.hasErrors()) {
 			for (KnowledgeBuilderError error : kbuilder.getErrors()) {
 				System.err.println(error);

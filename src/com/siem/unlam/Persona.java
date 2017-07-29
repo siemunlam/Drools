@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.codehaus.jettison.json.JSONObject;
+
 public class Persona {
 
 	private String mPreCategoria;
 	private int mAjuste;
 	private String mCategoria;
     private Map<String, String> mDatos;
+    private int mPrioridadAjuste;
+    private int mPrioridadPrecategoria;
+    private int mPrioridad;
 
     public Persona() {
     	this(new HashMap<String, String>());
@@ -20,6 +25,9 @@ public class Persona {
     	mPreCategoria = "";
     	mAjuste = 0;
     	mCategoria = "";
+    	mPrioridadAjuste = 0;
+    	mPrioridadPrecategoria = 0;
+    	mPrioridad = 0;
     }
 
     @Override
@@ -41,6 +49,30 @@ public class Persona {
     
     public void setPreCategoria(String categoria){
     	mPreCategoria = categoria;
+    }
+    
+    public int getPrioridadAjuste(){
+    	return mPrioridadAjuste;
+    }
+    
+    public void setPrioridadAjuste(int prioridad){
+    	mPrioridadAjuste = prioridad;
+    }
+    
+    public int getPrioridadPrecategoria(){
+    	return mPrioridadPrecategoria;
+    }
+    
+    public void setPrioridadPrecategoria(int prioridad){
+    	mPrioridadPrecategoria = prioridad;
+    }
+    
+    public int getPrioridad(){
+    	return mPrioridad;
+    }
+    
+    public void setPrioridad(int prioridad){
+    	mPrioridad = prioridad;
     }
     
     public int getAjuste(){
@@ -75,6 +107,28 @@ public class Persona {
     		i = mListCategorias.size() - 1;
     	
     	setCategoria(mListCategorias.get(i));
+    	
+    	procesarPrioridad();
+    }
+    
+    public void procesarPrioridad(){
+    	mPrioridad = (mPrioridadAjuste * mAjuste) + mPrioridadPrecategoria;
+    	
+    	if(mPrioridad < 0)
+    		mPrioridad = 0;
+    }
+    
+    public String getResultado(){
+    	try{
+    		JSONObject object = new JSONObject();
+    		object.put("Precategoria", getPreCategoria());
+    		object.put("Ajuste", getAjuste());
+    		object.put("Categoria", getCategoria());
+    		object.put("Prioridad", getPrioridad());
+    		return object.toString();
+    	}catch(Exception e){
+    		return "Error: " + e;
+    	}
     }
 
 }
