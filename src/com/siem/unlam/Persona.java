@@ -128,7 +128,8 @@ public class Persona {
     		object.put("prioridad", getPrioridad());
     		return object.toString();
     	}catch(Exception e){
-    		return "Error: " + e;
+    		System.out.println("Error (getResultado): " + e);
+    		return "Error (getResultado): " + e;
     	}
     }
 

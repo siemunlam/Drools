@@ -29,7 +29,7 @@ public class Prueba {
 		System.out.println(url + ":" + puerto +"/");
 		Server server = factoryBean.create();
 		
-		System.out.println("Server ready...");
+		System.out.println("Server ready... ");
         Thread.sleep(60 * 1000 * 60);
         System.out.println("Server exiting");
         server.destroy();
