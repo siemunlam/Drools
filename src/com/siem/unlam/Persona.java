@@ -113,7 +113,6 @@ public class Persona {
     
     public void procesarPrioridad(){
     	mPrioridad = (mPrioridadAjuste * mAjuste) + mPrioridadPrecategoria;
-    	
     	if(mPrioridad < 0)
     		mPrioridad = 0;
     }
@@ -121,10 +120,12 @@ public class Persona {
     public String getResultado(){
     	try{
     		JSONObject object = new JSONObject();
-    		object.put("Precategoria", getPreCategoria());
-    		object.put("Ajuste", getAjuste());
-    		object.put("Categoria", getCategoria());
-    		object.put("Prioridad", getPrioridad());
+    		object.put("precategoria", getPreCategoria());
+    		object.put("ajuste", getAjuste());
+    		object.put("categoria", getCategoria());
+    		object.put("prioridadAjuste", getPrioridadAjuste());
+    		object.put("prioridadPrecategoria", getPrioridadPrecategoria());
+    		object.put("prioridad", getPrioridad());
     		return object.toString();
     	}catch(Exception e){
     		return "Error: " + e;

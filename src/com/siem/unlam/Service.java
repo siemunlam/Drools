@@ -26,6 +26,7 @@ public class Service {
 			while(keys.hasNext()){
 				String key = keys.next();
 				valores.put(key, obj.getString(key));
+				System.out.println("Solicitud (datos): KEY: " + key + " VALUE: " + obj.getString(key));
 			}
 			Persona persona = new Persona(valores);
 			

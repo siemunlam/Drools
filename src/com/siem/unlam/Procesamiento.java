@@ -3,7 +3,7 @@ package com.siem.unlam;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.net.URISyntaxException;
+//import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -37,7 +37,7 @@ public class Procesamiento {
         ksession.fireAllRules();
 
         for (Persona persona : personas) {
-            System.out.println(persona.toString());
+            System.out.println(persona.getResultado());
         }
     }
     
@@ -65,7 +65,9 @@ public class Procesamiento {
         //Creamos algunos empleados para el ejemplo
         Persona persona = new Persona();
         persona.setDato("Sangrado", "Masivo");
-        //persona.setDato("Edad", "Mayor de 65 años");
+        persona.setDato("Traumatismo", "Leve");
+        persona.setDato("Edad", "Entre 3 y 65");
+        persona.setDato("Ubicacion", "Hospital privado");
         personas.add(persona);
 
         return personas;
@@ -73,6 +75,8 @@ public class Procesamiento {
     
     public String devolverCategoria(Persona persona) {
     	try{
+    		System.out.println("Solicitud de categorización recibida.");
+    		
         	KnowledgeBase kbase = readKnowledgeBase();
     		StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();	
             
@@ -88,12 +92,12 @@ public class Procesamiento {
     }
 
     private static KnowledgeBase readKnowledgeBase() {
-    	//System.out.println("1");
+    	System.out.println("1");
 		final KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-		//System.out.println("2");
+		System.out.println("2");
 		//kbuilder.add(ResourceFactory.newClassPathResource("Rules.drl"), ResourceType.DRL);
 		kbuilder.add(ResourceFactory.newFileResource(new File("Rules.drl")), ResourceType.DRL);
-		//System.out.println("3");
+		System.out.println("3");
 		if (kbuilder.hasErrors()) {
 			for (KnowledgeBuilderError error : kbuilder.getErrors()) {
 				System.err.println(error);
