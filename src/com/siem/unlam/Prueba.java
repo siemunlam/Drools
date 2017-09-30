@@ -30,10 +30,10 @@ public class Prueba {
 		Server server = factoryBean.create();
 		
 		System.out.println("Server ready... ");
-        Thread.sleep(60 * 1000 * 60);
-        System.out.println("Server exiting");
-        server.destroy();
-        System.exit(0);
+        //Thread.sleep(60 * 1000 * 60);
+        //System.out.println("Server exiting");
+        //server.destroy();
+        //System.exit(0);
 	}
 	
 	 public static void cargarConfiguracion() {
